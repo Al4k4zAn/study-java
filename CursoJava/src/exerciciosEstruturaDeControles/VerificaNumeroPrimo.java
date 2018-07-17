@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class VerificaNumeroPrimo {
 	public static void main(String[] args) {
 		int num = 0;
-		
+		int ValidacaoPorUm = 0;
+		int ValidacaoPorEleMesmo = 0;
 
 		Scanner scanner = new Scanner(System.in);
 
@@ -14,18 +15,38 @@ public class VerificaNumeroPrimo {
 		num = scanner.nextInt();
 		// Regra de calculo do numero primo
 
-		if (num == 1 || num == 0) {
-			System.out.println("Não é numero primo!");
-		} else if (num == 2 || num == 3 || num == 5 || num == 7) { 
-			System.out.println("É numero primo!");
-			// Elimina todos os multiplos de 3, 5, 7, 11 e 13
-		} else if (num % 2 == 0 || num % 3 == 0 || num % 5 == 0 || num % 7 == 0 || num % 11 == 0 || num % 13 == 0) {			
-			System.out.println("Não é numero primo!");
-		} else if (num % 2 == 1 || num % 3 == 1 || num % 5 == 1 || num % 7 == 1 || num % 11 == 1 || num % 13 == 1){
-			System.out.println("É número primo");
-		}else {
-			System.out.println("Numero invalido");
+		if (num > 1) {
+
+			ValidacaoPorUm = num % 1;
+
+			if (ValidacaoPorUm == 0) {
+
+				ValidacaoPorEleMesmo = num % num;
+
+				if (ValidacaoPorEleMesmo == 0) {
+					System.out.println("è numero primo");
+				}else {
+					System.out.println("Não é número primo");
+				}
+			} else {
+				System.out.println("Não é numero primo");
+			}
+		} else {
+			System.out.println("Número inválido");
 		}
+		
+		/*
+		 * if (num == 1 || num == 0) { System.out.println("Não é numero primo!"); } else
+		 * if (num == 2 || num == 3 || num == 5 || num == 7) {
+		 * System.out.println("É numero primo!"); // Elimina todos os multiplos de 3, 5,
+		 * 7, 11 e 13 } else if (num % 2 == 0 || num % 3 == 0 || num % 5 == 0 || num % 7
+		 * == 0 || num % 11 == 0 || num % 13 == 0) {
+		 * System.out.println("Não é numero primo!"); } else if (num % 2 == 1 || num % 3
+		 * == 1 || num % 5 == 1 || num % 7 == 1 || num % 11 == 1 || num % 13 == 1){
+		 * System.out.println("É número primo"); }else {
+		 * System.out.println("Numero invalido"); }
+		 */
+
 		scanner.close();
 	}
 }
